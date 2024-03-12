@@ -1,1 +1,9 @@
-/* hola */
+h1 {
+    text-align: center; 
+    font-size: 60px; 
+}
+
+.emoji {
+    font-size: 50px; 
+    margin-right: 10px;
+}
