@@ -18,6 +18,40 @@
         <p id="textoHeader">el encriptador mas seguro y organizado de la catualidad (antihakers 100%)</p>
     </header>
 
+    <main>
+
+        <form id="creandocarpeta">
+
+            <legend> datos necesarios de encriptacion </legend>
+
+            <label for="nombreApellido">nombre de la carpeta</label>
+                    <input type="text" id="idcarpeta" class="input-padron" required
+                    placeholder=" ingrese un nombre que pueda recordar">
+
+                  
+                    <label for="encryptText">Texto a encriptar:</label>
+                    <input type="text" id="encryptText" name="encryptText" oninput="this.value = this.value.toLowerCase().replace(/[^a-z0-9]/g, '');" 
+                    placeholder=" ingrese un texto para encriptar">
+
+                    <label for="nombreApellido">contraseña</label>
+                    <input type="password" id="contraseña" class="input-padron" required
+                    placeholder=" ingrese una contraseña">
+
+                    <label for="confirmPassword">Confirmar contraseña:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="input-padron"
+                     required placeholder="Confirme la contraseña">
+
+                     <button type="submit" id="botonEncriptador">Guardar y encriptar</button> <!-- Botón para guardar la información -->
+                    
+
+    
+    
+
+        </form>
+
+
+    </main>
+
     <footer>
         <p> by kevin marroquin </p>
     </footer>
