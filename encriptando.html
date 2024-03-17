@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>encriptador</title>
+    <link rel="icon" href="candadito.jfif" type="image/png">
     <link rel="stylesheet" href="encriptando.css">
     <script src="encriptando.js"></script> 
 </head>
@@ -20,34 +21,74 @@
 
     <main>
 
-        <form id="creandocarpeta">
+        <div class="formulario">
 
-            <legend> datos necesarios de encriptacion </legend>
+            <form id="creandocarpeta">
 
-            <label for="nombreApellido">nombre de la carpeta</label>
-                    <input type="text" id="idcarpeta" class="input-padron" required
-                    placeholder=" ingrese un nombre que pueda recordar">
-
-                  
-                    <label for="encryptText">Texto a encriptar:</label>
-                    <input type="text" id="encryptText" name="encryptText" oninput="this.value = this.value.toLowerCase().replace(/[^a-z0-9]/g, '');" 
-                    placeholder=" ingrese un texto para encriptar">
-
-                    <label for="nombreApellido">contraseña</label>
-                    <input type="password" id="contraseña" class="input-padron" required
-                    placeholder=" ingrese una contraseña">
-
-                    <label for="confirmPassword">Confirmar contraseña:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="input-padron"
-                     required placeholder="Confirme la contraseña">
-
-                     <button type="submit" id="botonEncriptador">Guardar y encriptar</button> <!-- Botón para guardar la información -->
-                    
-
+                <legend> datos necesarios de encriptacion </legend>
     
+                <label for="nombreApellido">nombre de la carpeta</label>
+                        <input type="text" id="idcarpeta" class="input-padron" required
+                        placeholder=" ingrese un nombre que pueda recordar">
     
+                      
+                        <label for="encryptText">Texto a encriptar:</label>
+                        <input type="text" id="encryptText" name="encryptText" oninput="this.value = this.value.toLowerCase().replace(/[^a-z0-9]/g, '');" 
+                        placeholder=" ingrese un texto para encriptar">
+    
+                        <label for="nombreApellido">contraseña</label>
+                        <input type="password" id="contraseña" class="input-padron" required
+                        placeholder=" ingrese una contraseña">
+    
+                        <label for="confirmPassword">Confirmar contraseña:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="input-padron"
+                         required placeholder="Confirme la contraseña">
+    
+                         <button type="submit" id="botonEncriptador">Guardar y encriptar</button> <!-- Botón para guardar la información -->
+                        
+    
+        
+        
+    
+            </form>
+        </div>
 
-        </form>
+        <div class="contenedordecarpetas-container">
+
+           <div class="cosasderelleno">
+
+            <p class="textovacio">
+
+                aún no hay nada aqui, solo este gato, este gato es muy timido, al parecer vió este lugar abandonado y se puso a bailar aqui, pero no te preocupes el se irá una vez sienta que algo se acerca
+    
+               </p>
+               <img id="gato" src="gato bailando.gif" alt="gato bailando">
+    
+               <img id="radio" src="radio.gif" alt="radio">
+           </div>
+
+           <div class="carpeta">
+
+
+            <div class="namecarpeta">
+                ????
+            </div>
+
+            <div class="textoencriptado">
+                text
+
+            </div>
+
+            <div>
+                
+            </div>
+
+
+
+           </div>
+
+
+        </div>
 
 
     </main>
