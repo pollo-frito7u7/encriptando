@@ -90,6 +90,12 @@ input[type="password"] {
    
 }
 
+.nombreCarpeta{
+
+    text-align: center; 
+
+}
+
 #botonEncriptador:hover {
     background-color: #f2f2f2; 
     animation: rainbow 10s infinite;
@@ -105,9 +111,15 @@ input[type="password"] {
     100% { color: rgb(128, 0, 0); }
 }
 
+.carpeta,
+.carpetaabierta {
+    display: none;
+}
+
 
 
 .contenedordecarpetas-container {
+    position: relative;
     border: 2px solid white; /* Agregar borde blanco */
     width: 40%;
     height: 676px;
@@ -115,6 +127,16 @@ input[type="password"] {
     margin: 20px; /* Agregar espacio externo */
     border-radius: 10px;
     float: right; /* Alinear a la derecha */
+}
+
+
+.textoencriptado{
+
+    font-size: 24px;
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;
+
 }
 
 .textovacio{
@@ -137,6 +159,93 @@ input[type="password"] {
     height: auto; /* Altura ajustada automáticamente */
 
 }
+
+.carpeta {
+   
+    position: absolute; /* Establece la posición absoluta */
+    border: 2px solid rgb(255, 255, 255); 
+    padding: 20px; /* Espacio interno del cuadro */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; 
+    width: 50%; /* Modificar el ancho */
+    height: 50%; /* Modificar la altura */
+    top: 50%; /* Colocar en la mitad vertical */
+    left: 50%; /* Colocar en la mitad horizontal */
+    transform: translate(-50%, -50%); /* Alinear al centro */
+    font-size: 100px
+}
+
+
+
+    
+
+.carpetaabierta {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.924); /* Fondo negro semitransparente */
+    z-index: 1000; /* Coloca la carpeta por encima de otros elementos */
+    width: 60%; /* Ajusta el ancho del cuadro */
+    height: 70%; /* Ajusta la altura del cuadro */
+    border: 2px solid rgba(255, 255, 255, 0.997); /* Ajusta el color y la opacidad del borde */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(255, 254, 254); /* Añade una sombra para resaltar el cuadro */
+}
+
+.nombreDeCarpeta,
+.textoDesencriptado {
+    padding: 20px;
+}
+
+.nombreDeCarpeta {
+    text-align: center; /* Centra el texto horizontalmente */
+    font-size: 60px; /* Cambia el tamaño de la fuente */
+}
+
+.textoDesencriptado {
+    text-align: center; /* Centra el texto horizontalmente */
+    font-size: 50px; /* Cambia el tamaño de la fuente */
+}
+
+.modificar-button,
+.copiar-button,
+.guardar-salir-button {
+    position: absolute;
+    bottom: 10px;
+
+    font-size: 30px; /* Ajusta el tamaño de fuente */
+    border: none; /* Elimina el borde */ /* Añade bordes redondeados */
+    cursor: pointer; 
+}
+
+.modificar-button {
+    left: 10px;
+    background-color: #ebebebfb; /* Cambia el color de fondo */
+    color: rgb(0, 0, 0); /* Cambia el color del texto */
+    font-family: 'VT323'
+}
+
+.copiar-button {
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff; /* Cambia el color de fondo */
+    color: rgb(0, 0, 0); /* Cambia el color del texto */
+    font-family: 'VT323'
+}
+
+.guardar-salir-button {
+    right: 10px;
+    background-color: #ffffff; /* Cambia el color de fondo */
+    color: rgb(0, 0, 0); /* Cambia el color del texto */
+    font-family: 'VT323'
+}
+
+
+
+
+   
+
 
 
 

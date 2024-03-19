@@ -7,98 +7,156 @@
     <title>encriptador</title>
     <link rel="icon" href="candadito.jfif" type="image/png">
     <link rel="stylesheet" href="encriptando.css">
-    <script src="encriptando.js"></script> 
+    
 </head>
-
 
 <body>
 
+    <script src="encriptando.js"></script>
 
+    
     <header>
-        <h1 id="textoprincipal"> 🔒encriptando...🔒 </h1>
-        <p id="textoHeader">el encriptador mas seguro y organizado de la catualidad (antihakers 100%)</p>
+        <h1 id="textoprincipal">🔒encriptando...🔒</h1>
+        <p id="textoHeader">el encriptador más seguro y organizado de la actualidad (antihackers 100%)</p>
     </header>
 
     <main>
-
         <div class="formulario">
-
             <form id="creandocarpeta">
+                <legend>datos necesarios de encriptacion</legend>
 
-                <legend> datos necesarios de encriptacion </legend>
-    
                 <label for="nombreApellido">nombre de la carpeta</label>
-                        <input type="text" id="idcarpeta" class="input-padron" required
-                        placeholder=" ingrese un nombre que pueda recordar">
-    
-                      
-                        <label for="encryptText">Texto a encriptar:</label>
-                        <input type="text" id="encryptText" name="encryptText" oninput="this.value = this.value.toLowerCase().replace(/[^a-z0-9]/g, '');" 
-                        placeholder=" ingrese un texto para encriptar">
-    
-                        <label for="nombreApellido">contraseña</label>
-                        <input type="password" id="contraseña" class="input-padron" required
-                        placeholder=" ingrese una contraseña">
-    
-                        <label for="confirmPassword">Confirmar contraseña:</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" class="input-padron"
-                         required placeholder="Confirme la contraseña">
-    
-                         <button type="submit" id="botonEncriptador">Guardar y encriptar</button> <!-- Botón para guardar la información -->
-                        
-    
-        
-        
-    
+                <input type="text" id="idcarpeta" class="input-padron" required
+                    placeholder="ingrese un nombre que pueda recordar">
+
+
+                <label for="encryptText">Texto a encriptar:</label>
+                <input type="text" id="encryptText" name="encryptText" 
+                    placeholder="ingrese un texto para encriptar">
+
+
+                <label for="password">contraseña</label>
+                <input type="password" id="contraseña" class="input-padron" required
+                    placeholder="ingrese una contraseña">
+
+
+                <label for="confirmPassword">Confirmar contraseña:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="input-padron"
+                    required placeholder="Confirme la contraseña">
+
+
+                <button type="submit" id="botonEncriptador">Guardar y encriptar</button>
+                <!-- Botón para guardar la información -->
             </form>
+
+
         </div>
 
         <div class="contenedordecarpetas-container">
-
-           <div class="cosasderelleno">
-
-            <p class="textovacio">
-
-                aún no hay nada aqui, solo este gato, este gato es muy timido, al parecer vió este lugar abandonado y se puso a bailar aqui, pero no te preocupes el se irá una vez sienta que algo se acerca
-    
-               </p>
-               <img id="gato" src="gato bailando.gif" alt="gato bailando">
-    
-               <img id="radio" src="radio.gif" alt="radio">
-           </div>
-
-           <div class="carpeta">
-
-
-            <div class="namecarpeta">
-                ????
+            <div class="cosasderelleno">
+                <p class="textovacio">
+                    aún no hay nada aquí, solo este gato, este gato es muy tímido, al parecer vio este lugar abandonado y se puso a bailar aquí, pero no te preocupes él se irá una vez sienta que algo se acerca
+                </p>
+                <img id="gato" src="gato bailando.gif" alt="gato bailando">
+                <img id="radio" src="radio.gif" alt="radio">
+                <audio controls autoplay>
+                    <source src="WhatsApp Audio 2024-03-19 at 9.05.06 AM.mpeg" type="audio/mpeg" class="music">
+                    Tu navegador no soporta el elemento de audio.
+                  </audio>
             </div>
 
-            <div class="textoencriptado">
-                text
+            
+            
+            <div class="carpeta">
+                <div class="namecarpeta" id="nombreCarpeta">
+                    <!-- El nombre de la carpeta ingresado por el usuario se mostrará aquí -->
+                </div>
+                <div class="textoencriptado" id="textoencriptado">
+                    <!-- El texto encriptado se mostrará aquí -->
+                </div>
+                <div>
+                    <input type="password" id="passwordDisplay" class="input-padron" placeholder="Ingrese su contraseña">
+                </div>
+
+                <div id="mensajeContraseñaIncorrecta" style="display: none;">
+                    Contraseña incorrecta
+                </div>
+            </div>
+        </div>
+
+        <div class="carpetaabierta">
+
+            <div class="nombreDeCarpeta">
+
+                nombre de carpeta
+
 
             </div>
 
-            <div>
+            <div class="textoDesencriptado">
                 
+
+            texto
+
+
             </div>
-
-
-
-           </div>
+            <button class="modificar-button">Modificar</button>
+            <button class="copiar-button">Copiar</button>
+            <button class="guardar-salir-button">Guardar y salir</button>
 
 
         </div>
-
-
     </main>
 
     <footer>
-        <p> by kevin marroquin </p>
+        <p>by kevin marroquin</p>
     </footer>
+
+    <script>
+        
+        document.getElementById('creandocarpeta').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evitar que el formulario se envíe
+
+            // Obtener el valor del nombre de la carpeta ingresado por el usuario
+            const nombreCarpeta = document.getElementById('idcarpeta').value;
+
+            // Obtener el valor del texto a encriptar ingresado por el usuario
+            const textoOriginal = document.getElementById('encryptText').value.toLowerCase();
+
+            // Encriptar el texto original
+            const textoEncriptado = encriptarTexto(textoOriginal);
+
+            // Mostrar el nombre de la carpeta y el texto encriptado en sus respectivos elementos
+            document.getElementById('nombreCarpeta').innerText = nombreCarpeta;
+            document.getElementById('textoencriptado').innerText = textoEncriptado;
+        });
+
+        function encriptarTexto(texto) {
+            // Definir las reglas de encriptación
+            const reglasEncriptacion = {
+                'e': 'enter',
+                'i': 'imes',
+                'a': 'ai',
+                'o': 'ober',
+                'u': 'ufat',
+                'enter': 'e',
+                'imes': 'i',
+                'ai': 'a',
+                'ober': 'o',
+                'ufat': 'u'
+            };
+
+            // Aplicar las reglas de encriptación
+            let textoEncriptado = '';
+            for (let letra of texto) {
+                textoEncriptado += reglasEncriptacion[letra] || letra;
+            }
+
+            return textoEncriptado;
+        }
+    </script>
 
     
 </body>
-
 
 </html>
