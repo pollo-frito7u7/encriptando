@@ -24,20 +24,31 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    function ocultarAudioMostrarCarpeta() {
-        // Ocultar el audio
-        const audio = document.querySelector('.cosasderelleno audio');
-        audio.style.display = 'none';
-
-        // Mostrar la carpeta
-        const carpeta = document.querySelector('.carpeta');
-        carpeta.style.display = 'block';
+    function ocultarElemento(elemento) {
+        elemento.style.display = 'none';
     }
 
-    function ocultarMensajeCosasDeRelleno() {
-        // Ocultar el mensaje y otros elementos de cosasderelleno
-        const cosasDeRelleno = document.querySelector('.cosasderelleno');
-        cosasDeRelleno.style.display = 'none';
+    function mostrarElemento(elemento) {
+        elemento.style.display = 'block';
+    }
+
+    function verificarContraseña() {
+        const contraseñaIngresada = document.getElementById('passwordDisplay').value;
+        const contraseña = document.getElementById('contraseña').value;
+        const confirmarContraseña = document.getElementById('confirmPassword').value;
+
+        if (contraseñaIngresada === contraseña && contraseñaIngresada === confirmarContraseña) {
+            mostrarElemento(document.querySelector('.carpetaabierta')); // Mostrar la sección
+            ocultarElemento(document.getElementById('mensajeContraseñaIncorrecta')); // Ocultar mensaje de contraseña incorrecta
+            
+            // Actualizar el texto desencriptado si la contraseña es correcta
+            const textoDesencriptadoElement = document.querySelector('.textoDesencriptado');
+            const textoOriginal = document.getElementById('encryptText').value;
+            textoDesencriptadoElement.textContent = textoOriginal;
+        } else {
+            ocultarElemento(document.querySelector('.carpetaabierta')); // Ocultar la sección
+            mostrarElemento(document.getElementById('mensajeContraseñaIncorrecta')); // Mostrar mensaje de contraseña incorrecta
+        }
     }
 
     document.getElementById('creandocarpeta').addEventListener('submit', function(event) {
@@ -49,9 +60,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Ocultar el audio y mostrar la carpeta
-        ocultarAudioMostrarCarpeta();
+        ocultarElemento(document.querySelector('.cosasderelleno'));
+        mostrarElemento(document.querySelector('.carpeta'));
 
         // Ocultar mensaje y otros elementos de cosasderelleno
         ocultarMensajeCosasDeRelleno();
     });
+
+    document.getElementById('passwordDisplay').addEventListener('input', verificarContraseña);
 });
