@@ -45,10 +45,36 @@ document.addEventListener('DOMContentLoaded', function() {
             const textoDesencriptadoElement = document.querySelector('.textoDesencriptado');
             const textoOriginal = document.getElementById('encryptText').value;
             textoDesencriptadoElement.textContent = textoOriginal;
+
+            // Agregar evento de copiar al botón "Copiar"
+            document.querySelector('.copiar-button').addEventListener('click', copiarTextoDesencriptado);
         } else {
             ocultarElemento(document.querySelector('.carpetaabierta')); // Ocultar la sección
             mostrarElemento(document.getElementById('mensajeContraseñaIncorrecta')); // Mostrar mensaje de contraseña incorrecta
         }
+    }
+
+    // Función para copiar el texto desencriptado al portapapeles
+    function copiarTextoDesencriptado() {
+        const textoDesencriptado = document.querySelector('.textoDesencriptado').textContent;
+
+        // Crear un elemento temporal de textarea para copiar el texto
+        const textarea = document.createElement('textarea');
+        textarea.value = textoDesencriptado;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        // Mostrar mensaje de éxito
+        alert('Texto copiado al portapapeles');
+    }
+
+    // Función para ocultar la carpeta abierta
+    function ocultarCarpetaAbierta() {
+        ocultarElemento(document.querySelector('.carpetaabierta'));
+        // Limpiar el campo de contraseña
+        document.getElementById('passwordDisplay').value = '';
     }
 
     document.getElementById('creandocarpeta').addEventListener('submit', function(event) {
@@ -68,4 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('passwordDisplay').addEventListener('input', verificarContraseña);
+
+    // Agregar evento para ocultar la carpeta al hacer clic en "Salir"
+    document.querySelector('.guardar-salir-button').addEventListener('click', ocultarCarpetaAbierta);
 });
